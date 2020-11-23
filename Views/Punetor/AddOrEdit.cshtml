@@ -1,0 +1,46 @@
+﻿@model WebApplication.Models.Punetor
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("AddOrEdit", "Punetor", FormMethod.Post, new {onsubmit = "return SubmitForm(this)" }))
+{
+@Html.HiddenFor(model => model.PunetorID)
+<div class="form-group">
+    @Html.LabelFor(model => model.Emri, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Emri, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Emri)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Pozicion, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Pozicion, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(model => model.Pozicion)
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Office, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Office, new { htmlAttributes = new { @class = "form-control" } })
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.Mosha, new { @class = "control-label" })
+    @Html.EditorFor(model => model.Mosha, new { htmlAttributes = new { @class = "form-control" } })
+</div>
+<div class="form-group">
+
+    @Html.LabelFor(model => model.Rroga, new { @class = "control-label" })
+    <div class="input-group">
+        <span class="input-group-addon">$</span>
+        @Html.EditorFor(model => model.Rroga, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+</div>
+
+<div class="form-group">
+    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input type="reset" value="Reset" class="btn" />
+</div>
+<script>
+    $(document).ready(function () {
+        $("#Emri").prop("maxlength", "29");
+        $("#Pozicion").prop("maxlength", "29");
+        $("#Office").prop("maxlength", "29");
+    })
+</script>
+}
